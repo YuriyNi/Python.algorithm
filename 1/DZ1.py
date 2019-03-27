@@ -136,3 +136,8 @@ elif a < b < c or c < b < a:
     print('Среднее:', b)
 else:
     print('Среднее:', c)
+
+
+
+
+    
