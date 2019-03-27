@@ -46,3 +46,90 @@ print("четных - %d, нечетных - %d" % (even, odd))
 num = input("Input number: ")
 print(num[::-1])
 
+# 4. Найти сумму n элементов следующего ряда чисел: 1 -0.5 0.25 -0.125 ...Количество элементов (n) вводится с клавиатуры.
+
+# n = int(input("Input N: "))
+# s = 0
+# num = 1
+# sign = 1
+# for i in range(n):
+#     s += sign*num
+#     print(sign*num)
+#     num /= 2
+#     sign *= -1
+#
+# print("Sum:", s)
+
+# 5. Вывести на экран коды и символы таблицы ASCII, начиная с символа под номером 32 и заканчивая 127-м включительно. Вывод выполнить в табличной форме: по десять пар "код-символ" в каждой строке.
+# begin = 32
+# end = 127
+# sym_in_line = 10
+# sym = begin
+# count = 1
+#
+# while sym <= end:
+#     print(f"{sym}-{chr(sym)}", end=" ")
+#     if count % sym_in_line == 0 and count != 0:
+#         print()
+#     sym += 1
+#     count += 1
+
+
+# 6. В программе генерируется случайное целое число от 0 до 100. Пользователь должен его отгадать не более чем за 10 попыток. После каждой неудачной попытки должно сообщаться больше или меньше введенное пользователем число, чем то, что загадано. Если за 10 попыток число не отгадано, то вывести загаданное число.
+
+import random
+
+num = random.randint(0, 100)
+tries = 10
+
+is_win = False
+for i in range(tries):
+     user_num = int(input("Input num: "))
+     if user_num > num:
+         print("Your num is bigger")
+     elif user_num < num:
+         print("Your num is lower")
+     else:
+         is_win = True
+         break
+
+    if is_win:
+    print("Match")
+else:
+    print("You lose. Tries end")
+
+# 7. Напишите программу, доказывающую или проверяющую, что для множества натуральных чисел выполняется равенство: 1+2+...+n = n(n+1)/2, где n - любое натуральное число.
+
+ n = int(input("Input n: "))
+
+print("1+2+...+n:", sum(range(1, n + 1)))
+print("n(n+1)/2:", n * (n + 1) / 2)
+
+if sum(range(1, n + 1)) == n * (n + 1) / 2:
+     print("Yes")
+else:
+     print("No")
+
+# 8. Посчитать, сколько раз встречается определенная цифра в введенной последовательности чисел. Количество вводимых чисел и цифра, которую необходимо посчитать, задаются вводом с клавиатуры.
+
+count = int(input("Input count: "))
+digit = input("Input digit: ")
+
+nums = []
+for i in range(count):
+    nums.append(input("Input num: "))
+
+print("".join(nums).count(digit))
+
+# 9. Среди натуральных чисел, которые были введены, найти наибольшее по сумме цифр. Вывести на экран это число и сумму его цифр.
+count = int(input("Input count: "))
+
+nums = []
+digit_sums = []
+for i in range(count):
+    n = input("Input num: ")
+    nums.append(n)
+    digit_sums.append(sum(map(int, n)))
+
+print("Num: ", nums[digit_sums.index(max(digit_sums))])
+print("Sum: ", max(digit_sums))
